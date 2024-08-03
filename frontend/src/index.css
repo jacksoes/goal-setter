@@ -1,0 +1,19 @@
+@media (min-width: 0px) {
+  .responsive-container {
+    width: 75% !important;
+  }
+}
+
+
+
+@media (min-width: 768px) {
+  .responsive-container {
+    width: 50% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .responsive-container {
+    width: 25% !important;
+  }
+}
