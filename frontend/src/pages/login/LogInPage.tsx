@@ -1,11 +1,12 @@
-import LogInForm from "../components/login-form/LogInForm";
+import LogInForm from "../../components/login-form/LogInForm";
+import "./LogInPage.css"
 
 import { Container, Button } from "react-bootstrap";
 const LogIn = () => {
   return (
-    <div className="mt-3">
+    <div className="overlay-center">
       <LogInForm />
-      <Container className="responsive-container test d-flex justify-content-center ">
+      <Container className="responsive-container d-flex justify-content-center ">
         <Button className="w-75 mt-3 mb-3">Sign Up</Button>
       </Container>
     </div>
