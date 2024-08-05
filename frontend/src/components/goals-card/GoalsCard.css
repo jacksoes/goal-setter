@@ -1,21 +1,41 @@
 .container-card {
-    background-color: #0197f6;
-    border: solid 2px #0197f6;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  background-color: #0197f6;
+  border: solid 2px #0197f6;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.container-card-completed{
-   background-color:  #198754;
-   border-radius: 15px;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+.container-card-completed {
+  background-color: #198754;
+  border: solid 2px #198754;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.icon-text-pair{
-    font-size: 1.75rem;
-    vertical-align: middle;
-
+.icon-text-pair {
+  font-size: 1.75rem;
+  vertical-align: middle;
 }
 
+.uncompleted-button {
+  background-color: #0197f6 !important;
+  border-color: #0197f6 !important;
+}
 
+.uncompleted-button:hover {
+  background-color: #0184d3 !important;
+  border-color: #0177f6 !important;
+}
 
+.button-none{
+    all: unset;
+}
+
+.span-underline:hover{
+    text-decoration: underline;
+   
+}
+
+.ml-05{
+    margin-left: .5rem;
+}

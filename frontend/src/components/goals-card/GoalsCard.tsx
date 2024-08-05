@@ -8,8 +8,9 @@ const GoalsCard = () => {
       <Container className="container-card responsive-container-large mt-4">
         <Row className="mb-4">
           <Col>
-            <FaChevronUp className="icon-text-pair" />{" "}
-            <span className="icon-text-pair">uncompleted</span>
+            <button className="button-none">
+            <span className="span-underline icon-text-pair"><FaChevronUp /><span className="ml-05">uncompleted</span></span>
+              </button>
           </Col>
         </Row>
 
@@ -21,8 +22,44 @@ const GoalsCard = () => {
 
         <Row className="mb-4">
           <Col>
-            <Button className="completed-button" variant="success">
-              completed
+            <Button variant="success">completed</Button>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container className="container-card responsive-container-large mt-4">
+        <Row>
+          <Col>
+          <button className="button-none">
+            <span className="span-underline icon-text-pair">
+              <FaChevronDown /><span className="ml-05">uncompleted</span>
+            </span>
+            </button>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container className="container-card-completed responsive-container-large mt-4">
+        <Row className="mb-4">
+          <Col>
+          <button className="button-none">
+            <span className="span-underline icon-text-pair">
+              <FaChevronUp /><span className="ml-05">completed</span>
+            </span>
+            </button>
+          </Col>
+        </Row>
+
+        <Row className="mb-4">
+          <Col>
+            <h1>go to gym for 30 minutes</h1>
+          </Col>
+        </Row>
+
+        <Row className="mb-4">
+          <Col>
+            <Button className="uncompleted-button" variant="info">
+              uncompleted
             </Button>
           </Col>
         </Row>
@@ -31,8 +68,11 @@ const GoalsCard = () => {
       <Container className="container-card-completed responsive-container-large mt-4">
         <Row>
           <Col>
-            <FaChevronDown className="icon-text-pair" />{" "}
-            <span className="icon-text-pair">completed</span>
+          <button className="button-none">
+            <span className="span-underline icon-text-pair">
+              <FaChevronDown /><span className="ml-05">completed</span>
+            </span>
+            </button>
           </Col>
         </Row>
       </Container>
