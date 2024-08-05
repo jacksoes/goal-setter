@@ -6,7 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 const NavBar = () => {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="navbar-color">
       <Container>
         <Navbar.Brand href="#home">Goal-Setter</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -14,7 +14,7 @@ const NavBar = () => {
           <Nav className="me-auto to-front">
             <Nav.Link href="#link">Log In</Nav.Link>
             <NavDropdown title="Goals" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Short-term Goals</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Daily Goals</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Long-term Goals
               </NavDropdown.Item>

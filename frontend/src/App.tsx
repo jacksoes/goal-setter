@@ -1,5 +1,5 @@
 import "./App.css";
-import NavBar from "./components/nav-bar/NavBar";
+import HomePage from "./pages/home/HomePage";
 import LogInPage from "./pages/login/LogInPage";
 import SignUpPage from "./pages/signup/SignUpPage";
 
@@ -10,7 +10,7 @@ function App() {
   //  USE REACT-ROUTER
 
   return (<>
-  <NavBar />
+  <HomePage />
   {/*
   <nav>
     <ul>

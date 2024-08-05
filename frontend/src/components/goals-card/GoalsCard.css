@@ -1,0 +1,17 @@
+.container-card {
+    background-color: #0197f6;
+    border: solid 2px #0197f6;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.completed-button{
+    font-size: 2rem;
+}
+
+.icon-text-pair{
+    font-size: 1.75rem;
+    vertical-align: middle;
+
+}
+
