@@ -1,19 +1,37 @@
 @media (min-width: 0px) {
-  .responsive-container {
+  .responsive-container-small {
     width: 75dvw !important;
   }
 }
 
-
-
 @media (min-width: 768px) {
-  .responsive-container {
+  .responsive-container-small {
     width: 50dvw !important;
   }
 }
 
 @media (min-width: 992px) {
-  .responsive-container {
+  .responsive-container-small {
     width: 25dvw !important;
+  }
+}
+
+
+
+@media (min-width: 0px) {
+  .responsive-container-large {
+    width: 90dvw !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-container-large {
+    width: 75dvw !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .responsive-container-large {
+    width: 50dvw !important;
   }
 }

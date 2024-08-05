@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 
 const SignUpForm = () => {
   return (
-    <Container className="responsive-container d-flex justify-content-center">
+    <Container className="responsive-container-small d-flex justify-content-center">
       <Form className="mt-3">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

@@ -5,7 +5,7 @@ import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 const GoalsCard = () => {
   return (
     <>
-      <Container className="container-card w-50 mt-4">
+      <Container className="container-card responsive-container-large mt-4">
         <Row className="mb-4">
           <Col>
             <FaChevronUp className="icon-text-pair" />{" "}
@@ -24,6 +24,15 @@ const GoalsCard = () => {
             <Button className="completed-button" variant="success">
               completed
             </Button>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container className="container-card-completed responsive-container-large mt-4">
+        <Row>
+          <Col>
+            <FaChevronDown className="icon-text-pair" />{" "}
+            <span className="icon-text-pair">completed</span>
           </Col>
         </Row>
       </Container>
