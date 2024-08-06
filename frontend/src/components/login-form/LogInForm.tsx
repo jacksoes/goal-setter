@@ -17,7 +17,7 @@ const LogInForm = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
-        <Button className="w-100 mb-3" type="submit">
+        <Button className="w-100 mb-3 blue-button" type="submit">
           Log In
         </Button>
       </Form>

@@ -3,16 +3,17 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <Navbar expand="lg" className="navbar-color">
       <Container>
-        <Navbar.Brand href="#home">Goal-Setter</Navbar.Brand>
+        <Navbar.Brand><Link className="none" to="/">Goal-Setter</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto to-front">
-            <Nav.Link href="#link">Log In</Nav.Link>
+            <Nav.Link><Link className="none" to="/LogInPage">Log In</Link></Nav.Link>
             <NavDropdown title="Goals" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Daily Goals</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom";
 import LogInForm from "../../components/login-form/LogInForm";
 import "./LogInPage.css"
+import CloseButton from "../../components/close-button/CloseButton";
 
 import { Container, Button } from "react-bootstrap";
 const LogIn = () => {
   return (
-    <div className="overlay-center">
+    <div className="overlay-center-form">
+      <CloseButton />
       <LogInForm />
       <Container className="responsive-container d-flex justify-content-center ">
-        <Button className="w-75 mt-3 mb-3">Sign Up</Button>
+      <Link to="/SignUpPage" className="none w-75"><Button className="w-100 mt-3 mb-3" variant="success" type="button" >Sign Up</Button></Link>
       </Container>
     </div>
   );

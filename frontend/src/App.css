@@ -1,4 +1,25 @@
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+.overlay-center-form {
+  background-color: #fffafa;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.blue-button {
+  background-color: #0197f6 !important;
+  border-color: #0197f6 !important;
+}
+
+.blue-button:hover {
+  background-color: #0184d3 !important;
+  border-color: #0177f6 !important;
+}
