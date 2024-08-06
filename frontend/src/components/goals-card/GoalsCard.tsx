@@ -9,7 +9,7 @@ const GoalsCard = () => {
         <Row className="mb-4">
           <Col>
             <button className="none">
-            <span className="span-underline icon-text-pair"><FaChevronUp /><span className="ml-05">uncompleted</span></span>
+            <span className="span-underline icon-text-pair pointer"><FaChevronUp /><span className="ml-05">uncompleted</span></span>
               </button>
           </Col>
         </Row>
@@ -31,7 +31,7 @@ const GoalsCard = () => {
         <Row>
           <Col>
           <button className="none">
-            <span className="span-underline icon-text-pair">
+            <span className="span-underline icon-text-pair pointer">
               <FaChevronDown /><span className="ml-05">uncompleted</span>
             </span>
             </button>
@@ -43,7 +43,7 @@ const GoalsCard = () => {
         <Row className="mb-4">
           <Col>
           <button className="none">
-            <span className="span-underline icon-text-pair">
+            <span className="span-underline icon-text-pair pointer">
               <FaChevronUp /><span className="ml-05">completed</span>
             </span>
             </button>
@@ -69,7 +69,7 @@ const GoalsCard = () => {
         <Row>
           <Col>
           <button className="none">
-            <span className="span-underline icon-text-pair">
+            <span className="span-underline icon-text-pair pointer">
               <FaChevronDown /><span className="ml-05">completed</span>
             </span>
             </button>

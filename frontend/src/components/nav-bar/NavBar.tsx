@@ -9,7 +9,7 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className="navbar-color">
       <Container>
-        <Navbar.Brand><Link className="none" to="/">Goal-Setter</Link></Navbar.Brand>
+        <Navbar.Brand className="pointer"><Link className="none" to="/">Goal-Setter</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto to-front">
