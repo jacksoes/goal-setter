@@ -1,6 +1,6 @@
 import { stringHasNumber, stringHasSpecial } from "./utils";
 
-const validatePassword = (password: string, setErrorMessage, setIsValidated) => {
+const validatePassword = (password: string, setErrorMessage: (messages: string[]) => void, setIsValidated: (isValid: boolean) => void) => {
    
 
     let errorMessage: string[] = [];

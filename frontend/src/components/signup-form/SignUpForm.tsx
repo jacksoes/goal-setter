@@ -13,7 +13,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState<string>("");
 
   const [passwordValidation, setPasswordValidation] = useState<boolean>();
-  const [errorMessage, setErrorMessage] = useState<string[]>();
+  const [errorMessage, setErrorMessage] = useState<string[]>([]);
 
   let mapErrors;
   if (errorMessage) {
@@ -27,9 +27,34 @@ const SignUpForm = () => {
 
   const userSignIn = (event) => {
     event.preventDefault();
-    console.log(event.target[0].value);
-    console.log(event.target[1].value);
-    console.log(event.target[2].value);
+    const email = event.target[0].value;
+    const password = event.target[1].value;
+    const confirmPassword = event.target[2].value;
+    if (!passwordValidation) {
+      console.log("invalid password");
+      return;
+    }
+    if (password !== confirmPassword) {
+      alert("passwords must match");
+      return;
+    }
+    console.log(`userName: ${userName} \n password: ${password} `);
+
+    fetch("http://localhost:3000/signUp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userName: userName,
+        password: password,
+      }),
+    })
+      .then((response) => response)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.error("error:", error));
   };
 
   return (
@@ -41,6 +66,7 @@ const SignUpForm = () => {
             type="email"
             placeholder="Enter email"
             autoComplete="username"
+            onChange={(e) => setUserName(e.target.value)}
           />
         </Form.Group>
 
@@ -53,6 +79,7 @@ const SignUpForm = () => {
             type="password"
             placeholder="Password"
             autoComplete="password"
+            onChange={(e) => setPassword(e.target.value)}
             onBlur={(event) =>
               validatePassword(
                 event.target.value,
