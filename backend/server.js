@@ -4,16 +4,28 @@ const cors = require('cors');
 
 const signUpRouter = require('./controllers/signUp.controller.js');
 const applyMiddleWare = require('./middleWare.js');
+const {connectDatabase} = require('./database.js');
+
+const runServer = async (app, connectDatabase) =>
+    {
+        await connectDatabase();
+        app.use("/", signUpRouter);
+    }
+    
 
 applyMiddleWare(app);
 
-app.use("/", signUpRouter);
+runServer(app, connectDatabase);
 
 
 
-//app.post("/signUp", (req, res) =>{
-//    console.log(req.body);
-//})
+
+
+
+
+
+
+
 
 
 app.listen(3000);
