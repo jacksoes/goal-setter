@@ -18,7 +18,7 @@ const signUpControllerPost = async (req, res) => {
 
 const signUpControllerGet = async (req, res) => {
     try {
-        const user = await collection.findOne({userName: "testuser@test.com"})
+        const user = await collection.find().toArray()
         res.json(user);
     } catch (err)
     {
