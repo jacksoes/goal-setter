@@ -1,15 +1,14 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
 
-const signUpRouter = require('./controllers/signUp.controller.js');
+const routerSignUp = require('./routes/signUp.route.js');
 const applyMiddleWare = require('./middleWare.js');
 const {connectDatabase} = require('./database.js');
 
 const runServer = async (app, connectDatabase) =>
     {
         await connectDatabase();
-        app.use("/", signUpRouter);
+        app.use("/", routerSignUp);
     }
     
 
