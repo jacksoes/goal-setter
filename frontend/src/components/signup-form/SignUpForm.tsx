@@ -31,7 +31,7 @@ const SignUpForm = () => {
     const password = event.target[1].value;
     const confirmPassword = event.target[2].value;
     if (!passwordValidation) {
-      console.log("invalid password");
+      alert("invalid password");
       return;
     }
     if (password !== confirmPassword) {
@@ -52,7 +52,7 @@ const SignUpForm = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        alert(data.error);
       })
       .catch((error) => console.error("error:", error));
   };
