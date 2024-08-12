@@ -19,18 +19,12 @@ const signUpControllerPost = async (req, res) => {
     const newPassword = await bcrypt.hash(req.body.password, 10);
     const newUser = { userName: newUserName, password: newPassword };
     User.create(newUser);
+
   } catch (error) {
     console.error("error interacting with database", error);
   }
 };
 
-const signUpControllerGet = async (req, res) => {
-  try {
-    const user = await collection.find().toArray();
-    res.json(user);
-  } catch (err) {
-    console.error("error fetching user", err);
-  }
-};
 
-module.exports = { signUpControllerPost, signUpControllerGet };
+
+module.exports = { signUpControllerPost };
