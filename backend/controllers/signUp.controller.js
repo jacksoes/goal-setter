@@ -3,28 +3,30 @@ const mongoose = require("mongoose");
 const User = require("../models/users.js");
 
 const signUpControllerPost = async (req, res) => {
-  if (!req.body.userName || !req.body.password) {
-    return res
-      .status(400)
-      .json({ error: "both userName and password is required" });
-  }
-
   const newUserName = req.body.userName;
-  try {
-    const existingUser = await User.findOne({ userName: newUserName });
-    if (existingUser) {
-      return res.status(409).json({ error: "username is already taken" });
-    }
+  const newPassword = await bcrypt.hash(req.body.password, 10);
+  const newUser = { userName: newUserName, password: newPassword };
 
-    const newPassword = await bcrypt.hash(req.body.password, 10);
-    const newUser = { userName: newUserName, password: newPassword };
-    User.create(newUser);
+  const existingUser = await User.findOne({ userName: newUserName });
+  const validationErrors = validateInput(req, existingUser);
 
-  } catch (error) {
-    console.error("error interacting with database", error);
-  }
+  if (validationErrors)
+    return res.status(400).json({ error: validationErrors });
+
+  await User.create(newUser);
 };
 
-
-
 module.exports = { signUpControllerPost };
+
+
+
+function validateInput(req, existingUser) {
+  const { userName, password } = req.body;
+  let errors = "";
+
+  if (existingUser) errors += "User already exists \n";
+  if (!userName) errors += "Username is required \n";
+  if (!password) errors += "Password is required \n";
+
+  return errors.length ? errors : null;
+}
