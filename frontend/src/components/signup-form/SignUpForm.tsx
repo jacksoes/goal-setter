@@ -50,7 +50,7 @@ const SignUpForm = () => {
         password: password,
       }),
     })
-      .then((response) => response)
+      .then((response) => response.json())
       .then((data) => {
         console.log(data);
       })
