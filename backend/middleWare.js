@@ -8,7 +8,7 @@ const initializePassport = require("./passport-config.js");
 const Users = require("./models/users.js");
 
 initializePassport(passport, (email) => {
-  return Users.find({userName: email});
+  return Users.findOne({userName: email});
 });
 
 const applyMiddleWare = (app) => {
