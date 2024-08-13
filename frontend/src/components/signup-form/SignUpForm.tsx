@@ -38,7 +38,7 @@ const SignUpForm = () => {
       alert("passwords must match");
       return;
     }
-    console.log(`userName: ${userName} \n password: ${password} `);
+    
 
     fetch("http://localhost:3000/signUp", {
       method: "POST",

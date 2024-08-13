@@ -12,13 +12,11 @@ const runServer = async (app, connectDatabase) =>
     {
         await connectDatabase();
         app.use('/', routerSignUp);
-        //app.use('/', routerLogIn);
+        app.use('/', routerLogIn);
        
     }
-    
 
 applyMiddleWare(app);
-
 runServer(app, connectDatabase);
 
 

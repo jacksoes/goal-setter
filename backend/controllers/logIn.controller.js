@@ -1,9 +1,10 @@
+const passport = require('passport')
 
+const logInControllerPost = (passport.authenticate('local', {
+    successRedirect: '/suc',
+    failureRedirect: '/fuk',
+    failureFlash: true,
 
-
-const logInControllerPost = async (req, res) => {
-    console.log(req.body)
-    
-}
+}))
 
 module.exports = logInControllerPost;

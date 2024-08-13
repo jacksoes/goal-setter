@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const mongoose = require("mongoose");
+
 const User = require("../models/users.js");
 
 const signUpControllerPost = async (req, res) => {
@@ -14,6 +14,7 @@ const signUpControllerPost = async (req, res) => {
     return res.status(400).json({ error: validationErrors });
 
   await User.create(newUser);
+  
 };
 
 module.exports = { signUpControllerPost };
