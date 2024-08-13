@@ -1,7 +1,7 @@
 const passport = require('passport')
 
 const logInControllerPost = (passport.authenticate('local', {
-    successRedirect: '/suc',
+    successRedirect: '/bro',
     failureRedirect: '/fuk',
     failureFlash: true,
 

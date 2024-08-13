@@ -7,8 +7,8 @@ const session = require("express-session");
 const initializePassport = require("./passport-config.js");
 const Users = require("./models/users.js");
 
-initializePassport(passport, (userName) => {
-  return Users.find((user) => user.userName === userName);
+initializePassport(passport, (email) => {
+  return Users.find({userName: email});
 });
 
 const applyMiddleWare = (app) => {
@@ -23,7 +23,7 @@ const applyMiddleWare = (app) => {
       saveUninitialized: false,
     })
   );
-
+  
   app.use(passport.initialize());
   app.use(passport.session());
 
