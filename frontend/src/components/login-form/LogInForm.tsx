@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 const LogInForm = () => {
   const submitLogIn = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/logIn", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -16,7 +16,7 @@ const LogInForm = () => {
         password: event.target[1].value,
       }),
     })
-      .then((response) => response)
+      .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
   };

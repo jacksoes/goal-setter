@@ -40,7 +40,7 @@ const SignUpForm = () => {
     }
     
 
-    fetch("http://localhost:3000/signUp", {
+    fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
