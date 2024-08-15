@@ -7,7 +7,6 @@ const session = require("express-session");
 const initializePassport = require("./passport-config.js");
 const Users = require("./models/users.js");
 
-
 initializePassport(
   passport,
   (email) => {
@@ -17,7 +16,6 @@ initializePassport(
     return Users.findOne({ _id: id });
   }
 );
-
 
 const applyMiddleWare = (app) => {
   app.use(cors());
@@ -31,31 +29,29 @@ const applyMiddleWare = (app) => {
     })
   );
 
-  
-
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.post('/login', passport.authenticate('local', {
-    successRedirect: '/login',
-    failureRedirect: '/fuc',
-    failureFlash: false
-  })
-)
+  /*app.post(
+    "/login",
+    passport.authenticate("local", {
+      successRedirect: "/login",
+      failureRedirect: "/",
+      failureFlash: false,
+    })
+  );*/
 
   console.log("middleware running");
 };
 
 function checkAuthenticated(req, res, next) {
-  console.log("checkauthenticate ran", req.user)
   console.log("checking req.isauthenticated", req.isAuthenticated());
   if (req.isAuthenticated()) {
-    console.log("user is authenticated")
-    return next()
+    console.log("user is authenticated");
+    return next();
   }
 
-  console.log("user is not authenticated")
+  console.log("user is not authenticated");
 }
 
-
-module.exports = {applyMiddleWare, checkAuthenticated};
+module.exports = { applyMiddleWare, checkAuthenticated };
