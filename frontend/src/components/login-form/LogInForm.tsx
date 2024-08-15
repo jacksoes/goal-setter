@@ -15,6 +15,7 @@ const LogInForm = () => {
         userName: event.target[0].value,
         password: event.target[1].value,
       }),
+      credentials: "include",
     })
       .then((response) => response.json())
       .then((data) => console.log(data))
