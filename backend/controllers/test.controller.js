@@ -1,6 +1,6 @@
 const testControllerGet = (req, res) => {
 
-    res.send("testController: res sent");
+    res.json({"message": 'testController: res sent'});
 
 }
 

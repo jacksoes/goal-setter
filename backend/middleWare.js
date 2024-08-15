@@ -3,6 +3,7 @@ const cors = require("cors");
 const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 const initializePassport = require("./passport-config.js");
 const Users = require("./models/users.js");
@@ -22,7 +23,7 @@ const corsOptions = {
   credentials: true,
 }
 
-const applyMiddleWare = (app) => {
+const applyMiddleWare = async (app) => {
   app.use(cors(corsOptions));
   app.use(express.json());
   app.use(flash());
@@ -31,6 +32,12 @@ const applyMiddleWare = (app) => {
       secret: process.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
+      store: MongoStore.create({mongoUrl: process.env.MONGO_URI}),
+      cookie: {
+        secure: false, // Set to true in production (see below for HTTPS)
+        httpOnly: true, // Helps mitigate XSS attacks
+        maxAge: 1000 * 60 * 60 // 1 hour session expiration
+      }
     })
   );
 

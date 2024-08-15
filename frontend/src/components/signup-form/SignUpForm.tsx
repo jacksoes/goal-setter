@@ -49,6 +49,7 @@ const SignUpForm = () => {
         userName: userName,
         password: password,
       }),
+      credentials: "include",
     })
       .then((response) => response.json())
       .then((data) => {
