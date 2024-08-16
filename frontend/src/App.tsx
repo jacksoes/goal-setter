@@ -7,10 +7,10 @@ function App() {
     fetch("http://localhost:3000/test", {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
+        credentials: "include",
       },
     })
-      .then((response) => response.json())
+      .then((response) => response)
       .then((data) => console.log(data))
       .catch((error) => console.error("error sending test get request", error));
 

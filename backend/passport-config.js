@@ -33,6 +33,7 @@ function initialize(passport, getUserByEmail, getUserById) {
     return done(null, user._id);
   });
   passport.deserializeUser((id, done) => {
+    console.log("deserializeran", user)
     return done(null, getUserById(id));
   });
 }

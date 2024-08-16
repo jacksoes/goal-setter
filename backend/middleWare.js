@@ -5,6 +5,8 @@ const flash = require("express-flash");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
+// ! change out cookies and use local or session storage
+
 const initializePassport = require("./passport-config.js");
 const Users = require("./models/users.js");
 
@@ -14,7 +16,9 @@ initializePassport(
     return Users.findOne({ userName: email });
   },
   (id) => {
-    return Users.findOne({ _id: id });
+    return Users.findById(id, function(err, user){
+      done(err, user);
+    });
   }
 );
 
@@ -23,7 +27,7 @@ const corsOptions = {
   credentials: true,
 }
 
-const applyMiddleWare = async (app) => {
+const applyMiddleWare = (app) => {
   app.use(cors(corsOptions));
   app.use(express.json());
   app.use(flash());

@@ -11,7 +11,7 @@ const User = require('./models/users.js')
 
 const runServer = async (app, connectDatabase) =>
     {
-        await applyMiddleWare(app);
+        applyMiddleWare(app);
         await connectDatabase();
         app.use('/', routerSignUp);
         app.use('/', routerLogIn);
@@ -21,9 +21,6 @@ const runServer = async (app, connectDatabase) =>
 
 //applyMiddleWare(app);
 runServer(app, connectDatabase);
-
-
-
 
 
 
