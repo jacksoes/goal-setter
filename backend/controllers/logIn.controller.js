@@ -1,8 +1,16 @@
 const passport = require("passport");
+const cookieParser = require("cookie-parser");
+const jwt = require("jsonwebtoken");
 
-const logInControllerPost = (req, res) => {
-    console.log('req authenticated check', req.isAuthenticated());
- 
+const logInControllerPost = async (req, res) => {
+  // ! problem is cookies are sent to server before they are instantianted on client side
+  if (req.isAuthenticated()) {
+    
+
+    res.json({ success: true, message: "Login Success!"});
+  } else {
+    res.status(401).json({ sucess: false, message: "Login failed" });
+  }
 };
 
 module.exports = logInControllerPost;
@@ -19,7 +27,6 @@ module.exports = logInControllerPost;
     }
     res.send({ userID: user.id });
   })(req, res);*/
-
 
 /*
 

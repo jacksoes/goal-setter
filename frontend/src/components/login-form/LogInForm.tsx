@@ -3,13 +3,14 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 
-
+import Cookies from "js-cookie";
 
 const LogInForm = () => {
   const submitLogIn = (event) => {
     event.preventDefault();
     fetch("http://localhost:3000/login", {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -17,10 +18,12 @@ const LogInForm = () => {
         userName: event.target[0].value,
         password: event.target[1].value,
       }),
-      credentials: "include",
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+      
+      })
       .catch((err) => console.log(err));
   };
 

@@ -2,13 +2,16 @@ import "./App.css";
 import MainRoutes from "./routes/MainRoutes";
 import { useEffect } from "react";
 
+import Cookies from "js-cookie";
+
 function App() {
   const sendTest = () => {
+    //Cookies.set('myCookieName', 'myCookieValue', { expires: 7 });
+    //const test = Cookies.get();
+    //console.log(test);
     fetch("http://localhost:3000/test", {
       method: "GET",
-      headers: {
-        credentials: "include",
-      },
+      credentials: "include",
     })
       .then((response) => response)
       .then((data) => console.log(data))
@@ -16,6 +19,8 @@ function App() {
 
     console.log("test sent");
   };
+
+
 
   return (
     <>
