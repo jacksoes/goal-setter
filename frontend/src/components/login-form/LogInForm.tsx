@@ -22,6 +22,9 @@ const LogInForm = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        if(data.success){
+          Cookies.set("username", event.target[0].value, {expires: 1});
+        }
       
       })
       .catch((err) => console.log(err));

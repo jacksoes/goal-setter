@@ -42,7 +42,7 @@ const applyMiddleWare = (app) => {
       cookie: {
         secure: false, // Set to true in production (see below for HTTPS)
         httpOnly: true, // Helps mitigate XSS attacks
-        maxAge: 1000 * 60 * 60, // 1 hour session expiration
+        maxAge: 1000 * 60 * 60 * 24, // 1 hour session expiration
       }
     })
   );
@@ -52,14 +52,7 @@ const applyMiddleWare = (app) => {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  /*app.post(
-    "/login",
-    passport.authenticate("local", {
-      successRedirect: "/login",
-      failureRedirect: "/",
-      failureFlash: false,
-    })
-  );*/
+
 
   console.log("middleware running");
 

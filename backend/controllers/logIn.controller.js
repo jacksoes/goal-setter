@@ -2,8 +2,12 @@ const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 
+
+
 const logInControllerPost = async (req, res) => {
   // ! problem is cookies are sent to server before they are instantianted on client side
+  // ? get req.cookies in callback
+  console.log(req.user.userName)
   if (req.isAuthenticated()) {
     
 
