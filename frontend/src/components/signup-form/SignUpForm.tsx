@@ -6,6 +6,8 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import { Alert } from "react-bootstrap";
 
+import { useNavigate } from "react-router-dom";
+
 import validatePassword from "../../utils/validatePassword";
 
 const SignUpForm = () => {
@@ -14,6 +16,8 @@ const SignUpForm = () => {
 
   const [passwordValidation, setPasswordValidation] = useState<boolean>();
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
+
+  const navigate = useNavigate();
 
   let mapErrors;
   if (errorMessage) {
@@ -38,7 +42,6 @@ const SignUpForm = () => {
       alert("passwords must match");
       return;
     }
-    
 
     fetch("http://localhost:3000/signup", {
       method: "POST",
@@ -53,7 +56,8 @@ const SignUpForm = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert(data.error);
+        if (data.userCreated) navigate("/logInPage");
+        else alert(data.error);
       })
       .catch((error) => console.error("error:", error));
   };

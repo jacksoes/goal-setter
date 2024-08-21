@@ -14,6 +14,7 @@ const signUpControllerPost = async (req, res) => {
     return res.status(400).json({ error: validationErrors });
 
   await User.create(newUser);
+  return res.status(201).json({userCreated: true}); 
   
 };
 
