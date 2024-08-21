@@ -18,10 +18,3 @@ const LogIn = () => {
 };
 
 export default LogIn;
-/*
-w-50: Applies to all screen sizes.
-w-sm-50: Applies to small devices (≥576px).
-w-md-25: Applies to medium devices (≥768px).
-w-lg-25: Applies to large devices (≥992px).
-w-xl-25: Applies to extra large devices (≥1200px).
-*/

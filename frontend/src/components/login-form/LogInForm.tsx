@@ -2,10 +2,13 @@ import "./LogInForm.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
+import { useNavigate } from "react-router-dom";
 
 import Cookies from "js-cookie";
 
 const LogInForm = () => {
+  const navigate = useNavigate();
+
   const submitLogIn = (event) => {
     event.preventDefault();
     fetch("http://localhost:3000/login", {
@@ -23,7 +26,9 @@ const LogInForm = () => {
       .then((data) => {
         console.log(data);
         if(data.success){
-          Cookies.set("username", event.target[0].value, {expires: 1});
+          Cookies.set("username", event.target[0].value, {expires: 1})
+          navigate("/")
+          window.location.reload();
         }
       
       })

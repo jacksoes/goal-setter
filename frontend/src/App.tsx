@@ -21,6 +21,7 @@ function App() {
   };
 
 
+  console.log(Cookies.get());
 
   return (
     <>
