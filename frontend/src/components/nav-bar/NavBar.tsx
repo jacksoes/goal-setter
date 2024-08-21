@@ -16,12 +16,14 @@ import { useState, useEffect } from "react";
 
 
 const NavBar = () => {
-
-
-
   
   const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get("username") != null);
 
+  const logOutUser = () => {
+    Cookies.remove("connect.sid")
+    Cookies.remove("username")
+    window.location.reload();
+  }
 
   return (
     <Navbar expand="lg" className="navbar-color">
@@ -30,7 +32,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto to-front">
-            <Nav.Link>{isLoggedIn ? <Link  className="none" to="/">Log Out</Link> : <Link  className="none" to="/LogInPage">Log In</Link>}</Nav.Link>
+            <Nav.Link>{isLoggedIn ? <Link onClick={logOutUser} className="none" to="/">Log Out</Link> : <Link  className="none" to="/LogInPage">Log In</Link>}</Nav.Link>
             <NavDropdown title="Goals" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Daily Goals</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
