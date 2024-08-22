@@ -24,12 +24,14 @@ const NavBar = () => {
     Cookies.remove("username")
     window.location.reload();
 
-    fetch("http://localhost:3000/logout")
+    fetch("http://localhost:3000/logout", {
+      method: "DELETE"
+    })
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error("Client-side, logout Error:", error));
 
-    //! post request needed to remove user session from database, aswell as the client.
+    //! get request needed to remove user session from database, aswell as the client.
   }
 
   return (
