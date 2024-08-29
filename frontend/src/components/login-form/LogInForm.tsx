@@ -26,7 +26,7 @@ const LogInForm = () => {
       .then((data) => {
         console.log(data);
         if(data.success){
-          Cookies.set("username", event.target[0].value, {expires: 1})
+          Cookies.set("userName", event.target[0].value, {expires: 1})
           navigate("/")
           window.location.reload();
         }

@@ -17,19 +17,25 @@ import { useState, useEffect } from "react";
 
 const NavBar = () => {
   
-  const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get("username") != null);
+  const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get("userName") != null);
 
-  const logOutUser = () => {
-    Cookies.remove("connect.sid")
-    Cookies.remove("username")
-    window.location.reload();
+ 
 
-    fetch("http://localhost:3000/logout", {
-      method: "DELETE"
+  const logOutUser =  async () => {
+    Cookies.remove("userName");
+
+    
+
+    await fetch("http://localhost:3000/logout", {
+      method: "DELETE",
+      credentials: "include",
     })
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error("Client-side, logout Error:", error));
+
+    window.location.reload();
+    //! windo reload is preventing fetch request    
 
     //! get request needed to remove user session from database, aswell as the client.
   }
@@ -55,6 +61,7 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        <div>{Cookies.get("userName")}</div>
       </Container>
     </Navbar>
   );
