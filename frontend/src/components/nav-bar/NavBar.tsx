@@ -9,6 +9,7 @@ import Cookies from "js-cookie";
 
 import { useState, useEffect } from "react";
 
+import { removeDomainName } from "../../utils/stringManipulation";
 
 
 
@@ -61,7 +62,7 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <div>{Cookies.get("userName")}</div>
+        <div>{Cookies.get("userName") != null ? removeDomainName(Cookies.get("userName")) : null}</div>
       </Container>
     </Navbar>
   );

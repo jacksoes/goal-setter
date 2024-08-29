@@ -1,4 +1,4 @@
-import { stringHasNumber, stringHasSpecial } from "./utils";
+import { stringHasNumber, stringHasSpecial } from "./stringChecks";
 
 const validatePassword = (password: string, setErrorMessage: (messages: string[]) => void, setIsValidated: (isValid: boolean) => void) => {
    
