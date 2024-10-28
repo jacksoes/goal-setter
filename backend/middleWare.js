@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser")
 // ! NEVERMIND use cookies to check if user is logged in using authorization token. local storage can be used for caching.
 
 const initializePassport = require("./passport-config.js");
-const Users = require("./models/users.js");
+const Users = require("./models/users.model.js");
 
 initializePassport(
   passport,

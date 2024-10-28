@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 
-const User = require("../models/users.js");
+const User = require("../models/users.model.js");
 
 const signUpControllerPost = async (req, res) => {
   const newUserName = req.body.userName;

@@ -8,7 +8,7 @@ const routerLogOut = require("./routes/logOut.route.js")
 
 const {applyMiddleWare} = require("./middleWare.js");
 const {connectDatabase} = require("./database.js");
-const User = require("./models/users.js")
+const User = require("./models/users.model.js")
 
 
 const runServer = async (app, connectDatabase) =>

@@ -19,3 +19,6 @@ const userSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model("User", userSchema);
+
+
+// add goals to this document goals = [{goalName: string, dueDate: date}]

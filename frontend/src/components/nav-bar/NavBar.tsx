@@ -62,6 +62,7 @@ const NavBar = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        
         <div>{Cookies.get("userName") != null ? removeDomainName(Cookies.get("userName")) : null}</div>
       </Container>
     </Navbar>

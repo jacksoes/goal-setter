@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <button onClick={sendTest}>test route</button>
+      {/*<button onClick={sendTest}>test route</button>*/}
 
       <MainRoutes />
       {/*
