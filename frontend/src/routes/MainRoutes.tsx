@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import HomePage from "../pages/home/HomePage";
-import LogInPage from "../pages/login/LogInPage";
-import SignUpPage from "../pages/signup/SignUpPage";
-import AddForm from "../pages/add form/AddForm";
+import HomePage from "../pages/home/HomePage.tsx";
+import LogInPage from "../pages/login/LogInPage.tsx";
+import SignUpPage from "../pages/signup/SignUpPage.tsx";
+import AddForm from "../pages/add form/AddForm.tsx";
 
 
 const MainRoutes = () => {

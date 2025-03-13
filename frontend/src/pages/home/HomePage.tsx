@@ -9,7 +9,7 @@ const HomePage = () => {
     <div className="homepage-container">
       <NavBar />
       <div className="d-flex justify-content-center align-content-center mt-4"> <AddGoalsButton /> </div>
-      <GoalsCard />
+      <GoalsCard goal="finish homework today" completed={true} />
 
       <Outlet />
     </div>
