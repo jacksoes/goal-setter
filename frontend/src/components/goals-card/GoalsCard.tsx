@@ -1,61 +1,101 @@
 import "./GoalsCard.css";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import { useState } from "react";
 
 interface cardProps {
-  goal: string,
-  completed: boolean,
-  closed: boolean
+  goal: string;
+  completed: boolean;
+  closed: boolean;
 }
 
-const GoalsCard: React.FC<cardProps> = ( {goal, completed, closed}) =>  {
-  
-  if (!closed){ return (
-    
-    <>
-      <Container className={ `${completed ? "container-card-completed" : "container-card"} container-card responsive-container-large mt-4`}>
-        <Row className="mb-4">
-          <Col>
-            <button className="none">
-            <span className="span-underline icon-text-pair pointer"><FaChevronUp /><span className="ml-05"></span>{completed ? <>Completed</> : <>Uncompleted</>}</span>
-              </button>
-          </Col>
-        </Row>
+const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed }) => {
+  const [isClosed, setClosed] = useState<boolean>(closed);
 
-        <Row className="mb-4">
-          <Col>
-            <h1>{goal}</h1>
-          </Col>
-        </Row>
+  const updateClose = () => {
+    if (!isClosed) {
+      setClosed(true);
+      return;
+    } else {
+      setClosed(false);
+      return;
+    }
+  };
 
-        <Row className="mb-4">
-          <Col>
-            <Button variant={completed ? undefined : "success"} className={completed ? "blue-button" : undefined }>completed</Button>
-          </Col>
-        </Row>
-      </Container>
-      </>);
+  const [isCompleted, setCompleted] = useState<boolean>(completed);
 
-      }
-      return(
+  const updateComplete = () => {
+    if (!isCompleted) {
+      setCompleted(true);
+      return;
+    } else {
+      setCompleted(false);
+      return;
+    }
+  };
+
+  if (!isClosed) {
+    return (
       <>
-      <Container className={ `${completed ? "container-card-completed" : "container-card"} container-card responsive-container-large mt-4`}>
+        <Container
+          className={`${
+            isCompleted ? "container-card-completed" : "container-card"
+          } container-card responsive-container-large mt-4`}
+        >
+          <Row className="mb-4">
+            <Col>
+              <button className="none" onClick={updateClose}>
+                <span className="span-underline icon-text-pair pointer">
+                  <FaChevronUp />
+                  <span className="ml-05"></span>
+                  {isCompleted ? <>Completed</> : <>Uncompleted</>}
+                </span>
+              </button>
+            </Col>
+          </Row>
+
+          <Row className="mb-4">
+            <Col>
+              <h1>{goal}</h1>
+            </Col>
+          </Row>
+
+          <Row className="mb-4">
+            <Col>
+              <Button onClick={updateComplete}
+                variant={isCompleted ? undefined : "success"}
+                className={isCompleted ? "blue-button" : undefined}
+              >
+                completed
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      </>
+    );
+  }
+  return (
+    <>
+      <Container
+        className={`${
+          isCompleted ? "container-card-completed" : "container-card"
+        } container-card responsive-container-large mt-4`}
+      >
         <Row>
           <Col>
-          <button className="none">
-            <span className="span-underline icon-text-pair pointer">
-              <FaChevronDown /><span className="ml-05">{completed ? <>Completed</> : <>Uncompleted</>}</span>
-            </span>
+            <button className="none" onClick={updateClose}>
+              <span className="span-underline icon-text-pair pointer">
+                <FaChevronDown />
+                <span className="ml-05">
+                  {isCompleted ? <>Completed</> : <>Uncompleted</>}
+                </span>
+              </span>
             </button>
           </Col>
         </Row>
       </Container>
-
-     
-    </>);
-    
-  
-
+    </>
+  );
 };
 
 export default GoalsCard;
