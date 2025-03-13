@@ -2,9 +2,16 @@ import "./GoalsCard.css";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
-const GoalsCard = ( {goal, completed}) =>  {
+interface cardProps {
+  goal: string,
+  completed: boolean,
+  closed: boolean
+}
+
+const GoalsCard: React.FC<cardProps> = ( {goal, completed, closed}) =>  {
   
-  return (
+  if (!closed){ return (
+    
     <>
       <Container className={ `${completed ? "container-card-completed" : "container-card"} container-card responsive-container-large mt-4`}>
         <Row className="mb-4">
@@ -27,59 +34,28 @@ const GoalsCard = ( {goal, completed}) =>  {
           </Col>
         </Row>
       </Container>
+      </>);
 
-      <Container className="container-card responsive-container-large mt-4">
+      }
+      return(
+      <>
+      <Container className={ `${completed ? "container-card-completed" : "container-card"} container-card responsive-container-large mt-4`}>
         <Row>
           <Col>
           <button className="none">
             <span className="span-underline icon-text-pair pointer">
-              <FaChevronDown /><span className="ml-05">uncompleted</span>
+              <FaChevronDown /><span className="ml-05">{completed ? <>Completed</> : <>Uncompleted</>}</span>
             </span>
             </button>
           </Col>
         </Row>
       </Container>
 
-      <Container className="container-card-completed responsive-container-large mt-4">
-        <Row className="mb-4">
-          <Col>
-          <button className="none">
-            <span className="span-underline icon-text-pair pointer">
-              <FaChevronUp /><span className="ml-05">completed</span>
-            </span>
-            </button>
-          </Col>
-        </Row>
-
-        <Row className="mb-4">
-          <Col>
-            <h1>go to gym for 30 minutes</h1>
-          </Col>
-        </Row>
-
-        <Row className="mb-4">
-          <Col>
-            <Button className="blue-button">
-              uncompleted
-            </Button>
-          </Col>
-        </Row>
-      </Container>
-
-      <Container className="container-card-completed responsive-container-large mt-4">
-        <Row>
-          <Col>
-          <button className="none">
-            <span className="span-underline icon-text-pair pointer">
-              <FaChevronDown /><span className="ml-05">completed</span>
-            </span>
-            </button>
-          </Col>
-        </Row>
-      </Container>
-    </>
+     
+    </>);
+    
   
-);
+
 };
 
 export default GoalsCard;
