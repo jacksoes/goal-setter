@@ -6,17 +6,29 @@ import { useState } from "react";
 
 interface goalObject {
   goal: string;
+  daily: boolean;
+  date: Date;
   completed: boolean;
   closed: boolean;
+  
 }
 
 const AddForm = ({isClicked, setClicked, goals, setGoals}) => {
+
+  const [checkbox, setCheckbox] = useState(false);
   
 
 
-  const addGoal = () => {
-    event?.preventDefault()
-    const newGoal: goalObject = {goal: "yo", completed: true, closed: false}
+  const addGoal = (event) => {
+    event.preventDefault()
+    
+
+    const name = event.target.name.value
+    const date = event.target.date.value
+
+    const daily = checkbox
+    console.log(daily)
+    const newGoal: goalObject = {goal: name, completed: false, closed: false}
     setGoals([...goals, newGoal])
   }
 
@@ -31,17 +43,17 @@ const AddForm = ({isClicked, setClicked, goals, setGoals}) => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <div className="d-flex align-items-center flex-column">
             <Form.Label>Goal:</Form.Label>
-              <Form.Control type="text" placeholder="Enter your goal!" />
+              <Form.Control type="text" placeholder="Enter your goal!" name="name" />
             </div>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <div className="d-flex align-items-center flex-column">
               <Form.Label>Date:</Form.Label>
-              <Form.Control type="date" />
+              <Form.Control type="date" name="date" />
             </div>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Daily"
+            <Form.Check type="checkbox" label="Daily" name="daily" onChange={()  => checkbox ? setCheckbox(false) : setCheckbox(true)}
             />
           </Form.Group>
           <Button className="w-100 mb-3" type="submit" variant="success">

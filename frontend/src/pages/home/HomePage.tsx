@@ -9,6 +9,8 @@ import { useState } from "react";
 
 interface goalObject {
   goal: string;
+  daily: boolean;
+  date: Date;
   completed: boolean;
   closed: boolean;
 }
