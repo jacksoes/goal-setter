@@ -5,6 +5,8 @@ import { useState } from "react";
 
 interface cardProps {
   goal: string;
+  daily: boolean;
+  date: Date;
   completed: boolean;
   closed: boolean;
 }
@@ -34,6 +36,8 @@ const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed, daily, date }
     }
   };
 
+  const dateString = (date.getMonth() + 1) + "-" + (date.getDate() + 1) + "-" + date.getFullYear()
+//
   if (!isClosed) {
     return (
       <>
@@ -48,7 +52,7 @@ const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed, daily, date }
                 <span className="span-underline icon-text-pair pointer">
                   <FaChevronUp />
                   <span className="ml-05"></span>
-                  {isCompleted ? <>Completed</> : <>Uncompleted</>}
+                  {isCompleted ? <>Completed- {daily ? <>daily</> : dateString}</> : <>Uncompleted- {daily ? <>daily</> : dateString}</>}
                 </span>
               </button>
             </Col>

@@ -24,7 +24,7 @@ const AddForm = ({isClicked, setClicked, goals, setGoals}) => {
     
 
     const name = event.target.name.value
-    const date = event.target.date.value
+    const date = new Date(event.target.date.value)
 
     const daily = checkbox
     console.log(daily)
