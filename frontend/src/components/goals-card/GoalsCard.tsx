@@ -9,7 +9,7 @@ interface cardProps {
   closed: boolean;
 }
 
-const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed }) => {
+const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed, daily, date }) => {
   const [isClosed, setClosed] = useState<boolean>(closed);
 
   const updateClose = () => {
@@ -37,7 +37,7 @@ const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed }) => {
   if (!isClosed) {
     return (
       <>
-        <Container
+        <Container style={daily && !isCompleted ? {backgroundColor: "yellow"} : undefined}
           className={`${
             isCompleted ? "container-card-completed" : "container-card"
           } container-card responsive-container-large mt-4`}

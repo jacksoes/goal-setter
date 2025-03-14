@@ -28,7 +28,7 @@ const AddForm = ({isClicked, setClicked, goals, setGoals}) => {
 
     const daily = checkbox
     console.log(daily)
-    const newGoal: goalObject = {goal: name, completed: false, closed: false}
+    const newGoal: goalObject = {goal: name, completed: false, closed: false, daily: daily, date: date}
     setGoals([...goals, newGoal])
   }
 
