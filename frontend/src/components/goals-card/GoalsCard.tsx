@@ -37,6 +37,7 @@ const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed, daily, date }
   };
 
   const dateString = (date.getMonth() + 1) + "-" + (date.getDate() + 1) + "-" + date.getFullYear()
+  
 //
   if (!isClosed) {
     return (
