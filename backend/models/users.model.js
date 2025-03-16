@@ -14,6 +14,12 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+
+  goals: [{
+    name: String,
+    date: Date,
+    completed: Boolean,
+  }]
 });
 
 

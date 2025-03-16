@@ -15,13 +15,14 @@ interface goalObject {
 //state of goals arr of json object
 //json object,
 
+
 function addTest() {
   fetch("http://localhost:3000/addGoal", {
     method: "POST",
     headers: {
       "content-type": "application/json",
     },
-    body: JSON.stringify({ testin: "testtts" }),
+    body: JSON.stringify({name: "go the gym" , date: new Date("2/1/22") , completed: false}),
   })
     .then((response) => {
       if (!response.ok)
@@ -36,6 +37,10 @@ function addTest() {
     .catch((error) => {
       console.error("Error:", error);
     });
+
+
+
+    
 }
 
 const HomePage = () => {
