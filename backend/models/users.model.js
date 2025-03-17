@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
     name: String,
     date: Date,
     completed: Boolean,
+    daily: Boolean,
   }]
 });
 

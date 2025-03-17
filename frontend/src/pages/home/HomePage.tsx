@@ -17,7 +17,7 @@ interface goalObject {
 
 
 function addTest() {
-  fetch("http://localhost:3000/addGoal", {
+  /*fetch("http://localhost:3000/addGoal", {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -37,8 +37,7 @@ function addTest() {
     .catch((error) => {
       console.error("Error:", error);
     });
-
-
+  */
 
     
 }
