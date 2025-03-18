@@ -17,13 +17,7 @@ interface goalObject {
 
 
 function addTest() {
-  /*fetch("http://localhost:3000/addGoal", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({name: "go the gym" , date: new Date("2/1/22") , completed: false}),
-  })
+  fetch("http://localhost:3000/goals/" )
     .then((response) => {
       if (!response.ok)
       {
@@ -37,13 +31,13 @@ function addTest() {
     .catch((error) => {
       console.error("Error:", error);
     });
-  */
+  
 
     
 }
 
-const HomePage = () => {
-  const [goals, setGoals] = useState<goalObject[]>([]);
+const HomePage = ({goals, setGoals}) => {
+
 
   const mapGoals = goals.map((value) => (
     <GoalsCard

@@ -5,13 +5,13 @@ import SignUpPage from "../pages/signup/SignUpPage.tsx";
 import AddForm from "../pages/add form/AddForm.tsx";
 
 
-const MainRoutes = ({dataGoals}) => {
+const MainRoutes = ({goals, setGoals}) => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage  />}>
+      <Route path="/" element={<HomePage goals={goals} setGoals={setGoals}  />}>
         <Route path="LogInPage" element={<LogInPage />} />
         <Route path="SignUpPage" element={<SignUpPage />} />
-        <Route path="AddForm" element={<AddForm />} />
+        <Route path="AddForm" element={<AddForm goals={goals} setGoals={setGoals}  />} />
       </Route>
     </Routes>
   );

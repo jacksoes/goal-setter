@@ -1,25 +1,41 @@
 import "./App.css";
 import MainRoutes from "./routes/MainRoutes";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Cookies from "js-cookie";
 
+interface goalObject {
+  goal: string;
+  daily: boolean;
+  date: Date;
+  completed: boolean;
+  closed: boolean;
+}
+
 function App() {
-  const sendTest = () => {
-    //Cookies.set('myCookieName', 'myCookieValue', { expires: 7 });
-    //const test = Cookies.get();
-    //console.log(test);
-    fetch("http://localhost:3000/test", {
-      method: "GET",
-      credentials: "include",
-    })
-      .then((response) => response)
-      .then((data) => console.log(data))
-      .catch((error) => console.error("error sending test get request", error));
+  useEffect(() => {
+    const username = Cookies.get("userName")
+    if ( username == undefined) return;
 
-    console.log("test sent");
-  };
+    fetch(`http://localhost:3000/goals/${username}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((responseData) => {
+        console.log("Success:", responseData);
+        setGoals(responseData);
 
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
+  }, []);
+
+  const [goals, setGoals] = useState<goalObject[]>([]);
 
   console.log(Cookies.get());
 
@@ -27,7 +43,7 @@ function App() {
     <>
       {/*<button onClick={sendTest}>test route</button>*/}
 
-      <MainRoutes />
+      <MainRoutes goals={goals} setGoals={setGoals} />
       {/*
   <nav>
     <ul>
