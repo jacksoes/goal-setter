@@ -41,6 +41,7 @@ const HomePage = ({goals, setGoals}) => {
 
   const mapGoals = goals.map((value) => (
     <GoalsCard
+      _id={value._id}
       goal={value.goal}
       completed={value.completed}
       closed={value.closed}

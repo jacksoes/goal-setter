@@ -5,6 +5,6 @@ const completeGoalController = require("../controllers/completeGoal.controller.j
 const completeGoalRouter = express.Router();
 
 
-completeGoalRouter.put("/goals/:username", completeGoalController)
+completeGoalRouter.put("/goals/:username/:goalID", completeGoalController)
 
 module.exports = completeGoalRouter;

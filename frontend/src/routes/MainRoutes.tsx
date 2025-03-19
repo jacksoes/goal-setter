@@ -11,7 +11,7 @@ const MainRoutes = ({goals, setGoals}) => {
       <Route path="/" element={<HomePage goals={goals} setGoals={setGoals}  />}>
         <Route path="LogInPage" element={<LogInPage />} />
         <Route path="SignUpPage" element={<SignUpPage />} />
-        <Route path="AddForm" element={<AddForm goals={goals} setGoals={setGoals}  />} />
+        <Route path="AddForm" element={<AddForm goals={goals} setGoals={setGoals} />} />
       </Route>
     </Routes>
   );

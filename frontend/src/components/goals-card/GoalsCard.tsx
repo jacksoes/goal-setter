@@ -12,7 +12,7 @@ interface cardProps {
   closed: boolean;
 }
 
-const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed, daily, date }) => {
+const GoalsCard: React.FC<cardProps> = ({_id, goal, completed, closed, daily, date }) => {
   const [isClosed, setClosed] = useState<boolean>(closed);
 
   const updateClose = () => {
@@ -43,7 +43,7 @@ const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed, daily, date }
     const username = Cookies.get("userName");
     if ( username == undefined) return;
 
-    fetch(`http://localhost:3000/goals/${username}`, {
+    fetch(`http://localhost:3000/goals/${username}/${_id}`, {
           method: "PUT",
         })
           .then((response) => {
