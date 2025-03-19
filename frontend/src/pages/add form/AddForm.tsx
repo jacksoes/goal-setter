@@ -4,8 +4,10 @@ import { Container, Form, Button } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import generateUniqueId from "generate-unique-id" 
 
 interface goalObject {
+  _id: string;
   goal: string;
   daily: boolean;
   date: Date;
@@ -21,12 +23,15 @@ const AddForm = ({ isClicked, setClicked, goals, setGoals }) => {
   const addGoal = (event) => {
     event.preventDefault();
 
-    const name = event.target.name.value;
-    const date = new Date(event.target.date.value);
+    const name: string = event.target.name.value;
+    const date: Date = new Date(event.target.date.value);
 
-    const daily = checkbox;
-    console.log(daily);
+    const daily: boolean = checkbox;
+
+    const _id: string = generateUniqueId();
+
     const newGoal: goalObject = {
+      _id: _id,
       goal: name,
       completed: false,
       closed: false,
@@ -44,7 +49,7 @@ const AddForm = ({ isClicked, setClicked, goals, setGoals }) => {
       },
       body: JSON.stringify({
         userName: Cookies.get("userName"),
-        goal: { name: name, date: date, completed: false, daily: daily },
+        goal: { _id: _id,name: name, date: date, completed: false, daily: daily },
       }),
     })
       .then((response) => {

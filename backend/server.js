@@ -7,6 +7,7 @@ const routerTest = require("./routes/test.route.js")
 const routerLogOut = require("./routes/logOut.route.js")
 const routerAddGoal = require("./routes/addGoal.route.js")
 const routerGetGoals = require("./routes/getGoals.route.js")
+const routercompleteGoal = require("./routes/completeGoal.route.js")
 
 const {applyMiddleWare} = require("./middleWare.js");
 const {connectDatabase} = require("./database.js");
@@ -23,6 +24,7 @@ const runServer = async (app, connectDatabase) =>
         app.use("/", routerLogOut);
         app.use("/", routerAddGoal);
         app.use("/", routerGetGoals);
+        app.use("/", routercompleteGoal);
        
     }
 

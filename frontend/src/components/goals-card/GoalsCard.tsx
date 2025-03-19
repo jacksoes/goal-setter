@@ -2,6 +2,7 @@ import "./GoalsCard.css";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 interface cardProps {
   goal: string;
@@ -27,20 +28,45 @@ const GoalsCard: React.FC<cardProps> = ({ goal, completed, closed, daily, date }
   const [isCompleted, setCompleted] = useState<boolean>(completed);
 
   const updateComplete = () => {
+    
+
+
+
+
+
     if (!isCompleted) {
       setCompleted(true);
-      return;
     } else {
       setCompleted(false);
-      return;
     }
+
+    const username = Cookies.get("userName");
+    if ( username == undefined) return;
+
+    fetch(`http://localhost:3000/goals/${username}`, {
+          method: "PUT",
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((responseData) => {
+            console.log("Success:", responseData);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+    
+
   };
   let dateString = "";
 
   if(date instanceof Date){
     dateString = (date.getMonth() + 1) + "-" + (date.getDate() + 1) + "-" + date.getFullYear()
   }
-  
+
   if (!isClosed) {
     return (
       <>
