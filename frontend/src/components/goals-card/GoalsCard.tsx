@@ -115,7 +115,7 @@ const GoalsCard: React.FC<cardProps> = ({_id, name, completed, closed, daily, da
   }
   return (
     <>
-      <Container
+      <Container style={daily && !isCompleted ? {backgroundColor: "yellow"} : undefined}
         className={`${
           isCompleted ? "container-card-completed" : "container-card"
         } container-card responsive-container-large mt-4`}

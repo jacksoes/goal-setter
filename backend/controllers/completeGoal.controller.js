@@ -26,7 +26,7 @@ const completeGoalController =  async (req, res) => {
         {$set: {"goals.$.completed": !isCompleted}}
     );
 
-    res.sendStatus(200)
+    res.sendStatus(200);
 
 
 
