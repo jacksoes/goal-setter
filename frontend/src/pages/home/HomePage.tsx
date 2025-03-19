@@ -47,7 +47,7 @@ const HomePage = ({goals, setGoals}) => {
       completed={goal.completed}
       closed={goal.closed}
       daily={goal.daily}
-      date={goal.date}
+      date={new Date(goal.date)}
     />
   ));
 
