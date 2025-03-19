@@ -48,6 +48,8 @@ const HomePage = ({goals, setGoals}) => {
       closed={goal.closed}
       daily={goal.daily}
       date={new Date(goal.date)}
+      setGoals={setGoals}
+      goals={goals}
     />
   ));
 
