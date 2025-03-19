@@ -83,14 +83,25 @@ const GoalsCard: React.FC<cardProps> = ({_id, name, completed, closed, daily, da
         >
           <Row className="mb-4">
             <Col>
+            <span className="span-underline icon-text-pair pointer">
               <button className="none" onClick={updateClose}>
-                <span className="span-underline icon-text-pair pointer">
+                
                   <FaChevronUp />
+                  
+
+                
+                </button>
+
                   <span className="ml-05"></span>
                   {isCompleted ? <>Completed- {daily ? <>daily</> : dateString}</> : <>Uncompleted- {daily ? <>daily</> : dateString}</>}
-                </span>
-              </button>
+                  </span>
+                
+               
             </Col>
+            <Col className="d-flex justify-content-end">
+               <span className="pointer text-end"><Button className="none">X</Button></span>
+            </Col>
+            
           </Row>
 
           <Row className="mb-4">
