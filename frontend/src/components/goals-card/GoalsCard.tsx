@@ -3,16 +3,18 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 interface cardProps {
-  goal: string;
+  _id: string;
+  name: string;
   daily: boolean;
   date: Date;
   completed: boolean;
   closed: boolean;
 }
 
-const GoalsCard: React.FC<cardProps> = ({_id, goal, completed, closed, daily, date }) => {
+const GoalsCard: React.FC<cardProps> = ({_id, name, completed, closed, daily, date }) => {
   const [isClosed, setClosed] = useState<boolean>(closed);
 
   const updateClose = () => {
@@ -27,18 +29,22 @@ const GoalsCard: React.FC<cardProps> = ({_id, goal, completed, closed, daily, da
 
   const [isCompleted, setCompleted] = useState<boolean>(completed);
 
+  
+
   const updateComplete = () => {
+      console.log(isCompleted)
     
 
 
 
 
-
+    
     if (!isCompleted) {
       setCompleted(true);
     } else {
       setCompleted(false);
     }
+
 
     const username = Cookies.get("userName");
     if ( username == undefined) return;
@@ -89,7 +95,7 @@ const GoalsCard: React.FC<cardProps> = ({_id, goal, completed, closed, daily, da
 
           <Row className="mb-4">
             <Col>
-              <h1>{goal}</h1>
+              <h1>{name}</h1>
             </Col>
           </Row>
 

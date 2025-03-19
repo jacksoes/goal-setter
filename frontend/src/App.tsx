@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
 interface goalObject {
-  goal: string;
+  _id: string;
+  name: string;
   daily: boolean;
   date: Date;
   completed: boolean;

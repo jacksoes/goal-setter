@@ -8,7 +8,7 @@ import generateUniqueId from "generate-unique-id"
 
 interface goalObject {
   _id: string;
-  goal: string;
+  name: string;
   daily: boolean;
   date: Date;
   completed: boolean;
@@ -32,7 +32,7 @@ const AddForm = ({ isClicked, setClicked, goals, setGoals }) => {
 
     const newGoal: goalObject = {
       _id: _id,
-      goal: name,
+      name: name,
       completed: false,
       closed: false,
       daily: daily,
