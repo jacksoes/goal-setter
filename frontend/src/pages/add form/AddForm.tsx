@@ -43,7 +43,7 @@ const AddForm = ({ isClicked, setClicked, goals, setGoals }) => {
 
     if (Cookies.get("userName") == undefined) return;
 
-    fetch(`${serverURI}/addGoal`, {
+    fetch(`${serverURI}addGoal`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
