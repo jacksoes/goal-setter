@@ -95,7 +95,7 @@ const GoalsCard: React.FC<cardProps> = ({
 
   let dateString = "";
 
-  if (date instanceof Date) {
+  if (date instanceof Date && date != new Date("12-32-1969") || isNaN(date.getFullYear()) ) {
     dateString =
       date.getMonth() +
       1 +

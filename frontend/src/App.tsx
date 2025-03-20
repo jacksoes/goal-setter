@@ -29,7 +29,6 @@ function App() {
         return response.json();
       })
       .then((responseData) => {
-        console.log("Success:", responseData);
         setGoals(responseData);
 
       })
