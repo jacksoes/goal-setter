@@ -24,7 +24,7 @@ initializePassport(
 );
 
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'https://goal-setter-2pa7.onrender.com',
   credentials: true,
 }
 
