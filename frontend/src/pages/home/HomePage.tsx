@@ -39,7 +39,7 @@ const HomePage = ({goals, setGoals}) => {
 
       <NavBar />
       <div className="d-flex justify-content-center align-content-center mt-4">
-        <AddGoalsButton setGoals={setGoals} goals={goals} />{" "}
+        <AddGoalsButton setGoals={setGoals} goals={goals} />
       </div>
 
       {mapGoals}

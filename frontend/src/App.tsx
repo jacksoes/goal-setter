@@ -21,7 +21,7 @@ function App() {
     const username = Cookies.get("userName")
     if ( username == undefined) return;
 
-    fetch(`${serverURI}${username}`)
+    fetch(`${serverURI}goals/${username}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -41,7 +41,6 @@ function App() {
 
   const [goals, setGoals] = useState<goalObject[]>([]);
 
-  console.log(Cookies.get());
 
   return (
     <>
