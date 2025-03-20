@@ -5,6 +5,8 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import generateUniqueId from "generate-unique-id" 
 
+import serverURI from "../../serverURI";
+
 interface goalObject {
   _id: string;
   name: string;
@@ -41,7 +43,7 @@ const AddForm = ({ isClicked, setClicked, goals, setGoals }) => {
 
     if (Cookies.get("userName") == undefined) return;
 
-    fetch("http://localhost:3000/addGoal", {
+    fetch(`${serverURI}/addGoal`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

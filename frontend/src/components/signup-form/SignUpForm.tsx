@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 import validatePassword from "../../utils/validatePassword";
 
+import serverURI from "../../serverURI";
+
 const SignUpForm = () => {
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -43,7 +45,7 @@ const SignUpForm = () => {
       return;
     }
 
-    fetch("http://localhost:3000/signup", {
+    fetch(`${serverURI}signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

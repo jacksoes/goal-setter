@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 import Cookies from "js-cookie";
 
+import serverURI from "./serverURI";
+
 
 interface goalObject {
   _id: string;
@@ -19,7 +21,7 @@ function App() {
     const username = Cookies.get("userName")
     if ( username == undefined) return;
 
-    fetch(`http://localhost:3000/goals/${username}`)
+    fetch(`${serverURI}${username}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

@@ -4,6 +4,7 @@ import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
+import serverURI from "../../serverURI";
 
 interface cardProps {
   _id: string;
@@ -50,7 +51,7 @@ const GoalsCard: React.FC<cardProps> = ({
     const username = Cookies.get("userName");
     if (username == undefined) return;
 
-    fetch(`http://localhost:3000/goals/${username}/${_id}`, {
+    fetch(`${serverURI}${username}/${_id}`, {
       method: "PUT",
     })
       .then((response) => {
@@ -73,7 +74,7 @@ const GoalsCard: React.FC<cardProps> = ({
     const username = Cookies.get("userName");
     if (username == undefined) return;
 
-    fetch(`http://localhost:3000/removeGoal/${username}/${_id}`, {
+    fetch(`${serverURI}removeGoal/${username}/${_id}`, {
       method: "DELETE",
     })
       .then((response) => {

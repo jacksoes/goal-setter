@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
+import serverURI from "../../serverURI";
 
 import Cookies from "js-cookie";
 
@@ -27,7 +28,7 @@ const NavBar = () => {
 
     
 
-    await fetch("http://localhost:3000/logout", {
+    await fetch(`${serverURI}logout`, {
       method: "DELETE",
       credentials: "include",
     })

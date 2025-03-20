@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 import Cookies from "js-cookie";
 
+import serverURI from "../../serverURI";
+
 const LogInForm = () => {
   const navigate = useNavigate();
 
   const submitLogIn = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/login", {
+    fetch(`${serverURI}login`, {
       method: "POST",
       credentials: "include",
       headers: {

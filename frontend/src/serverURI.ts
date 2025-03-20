@@ -1,4 +1,4 @@
-const serverURI = process.env.SERVER_URI
+const serverURI = import.meta.env.SERVER_URI
 
 
 
