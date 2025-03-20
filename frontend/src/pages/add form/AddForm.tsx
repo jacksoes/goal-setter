@@ -1,7 +1,6 @@
 import "./AddForm.css";
 import CloseButton from "../../components/close-button/CloseButton";
 import { Container, Form, Button } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import generateUniqueId from "generate-unique-id" 

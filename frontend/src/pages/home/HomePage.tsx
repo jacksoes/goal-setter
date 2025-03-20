@@ -3,7 +3,6 @@ import NavBar from "../../components/nav-bar/NavBar";
 import GoalsCard from "../../components/goals-card/GoalsCard";
 import { Outlet } from "react-router-dom";
 import AddGoalsButton from "../../components/add-goals-button/AddGoalsButton";
-import { useState } from "react";
 
 interface goalObject {
   goal: string;
@@ -16,25 +15,7 @@ interface goalObject {
 //json object,
 
 
-function addTest() {
-  fetch("http://localhost:3000/goals/" )
-    .then((response) => {
-      if (!response.ok)
-      {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((responseData) => {
-      console.log("Success:", responseData);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-  
 
-    
-}
 
 const HomePage = ({goals, setGoals}) => {
 
@@ -55,7 +36,6 @@ const HomePage = ({goals, setGoals}) => {
 
   return (
     <div className="homepage-container">
-      <button onClick={addTest}>test</button>
 
       <NavBar />
       <div className="d-flex justify-content-center align-content-center mt-4">
