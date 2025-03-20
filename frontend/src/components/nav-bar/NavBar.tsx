@@ -50,11 +50,11 @@ const NavBar = () => {
           <Nav className="me-auto to-front">
             <Nav.Link>{isLoggedIn ? <Link onClick={logOutUser} className="none" to="/">Log Out</Link> : <Link  className="none" to="/LogInPage">Log In</Link>}</Nav.Link>
             <NavDropdown title="Goals" id="basic-nav-dropdown">
-              <NavDropdown.Item href="daily"><Link className="none" to="/daily">Daily Goals </Link></NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Long-term Goals
+              <NavDropdown.Item><Link className="none" to="/daily">Daily Goals </Link></NavDropdown.Item>
+              <NavDropdown.Item>
+              <Link className="none" to="/long-term">Long-term Goals</Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">All Goals</NavDropdown.Item>
+              <NavDropdown.Item><Link className="none" to="/">All Goals</Link></NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Data

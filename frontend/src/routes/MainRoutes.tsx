@@ -4,6 +4,7 @@ import LogInPage from "../pages/login/LogInPage.tsx";
 import SignUpPage from "../pages/signup/SignUpPage.tsx";
 import AddForm from "../pages/add form/AddForm.tsx";
 import DailyGoals from "../pages/daily-goals/DailyGoals.tsx";
+import LongTermGoals from "../pages/long-term-goals/LongTermGoals.tsx";
 
 
 const MainRoutes = ({goals, setGoals}) => {
@@ -16,6 +17,7 @@ const MainRoutes = ({goals, setGoals}) => {
         <Route path="AddForm" element={<AddForm goals={goals} setGoals={setGoals} />} />
       </Route>
       <Route path="/daily" element={<DailyGoals goals={goals} setGoals={setGoals}  />}></Route>
+      <Route path="/long-term" element={<LongTermGoals goals={goals} setGoals={setGoals}  />}></Route>
     </Routes>
   );
 };
