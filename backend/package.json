@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "devStart": "nodemon server.js",
-    "devDebug": "nodemon --inspect"
+    "devDebug": "nodemon --inspect",
+    "prodStart": "node server.js --host 0.0.0.0"
   },
   "author": "",
   "license": "ISC",
