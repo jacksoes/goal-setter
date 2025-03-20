@@ -31,6 +31,7 @@ const runServer = async (app, connectDatabase) =>
     }
 
 //applyMiddleWare(app);
+app.listen(3000, "0.0.0.0");
 runServer(app, connectDatabase);
 
 
