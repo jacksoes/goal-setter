@@ -30,7 +30,7 @@ const runServer = async (app, connectDatabase) =>
        
     }
 
-//applyMiddleWare(app);
+applyMiddleWare(app);
 runServer(app, connectDatabase);
 
 
