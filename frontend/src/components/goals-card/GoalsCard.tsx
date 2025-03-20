@@ -70,6 +70,25 @@ const GoalsCard: React.FC<cardProps> = ({
   const removeGoal = () =>{
     setGoals(goals.filter(goal => goal._id != _id))
 
+    const username = Cookies.get("userName");
+    if (username == undefined) return;
+
+    fetch(`http://localhost:3000/removeGoal/${username}/${_id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((responseData) => {
+        console.log("Success:", responseData);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
   }
 
 
